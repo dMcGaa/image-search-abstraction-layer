@@ -35,7 +35,8 @@ app.get('/api/imagesearch/*', function(request, response) {
     console.log(searchTerm);
     //request.url = "test%20test";  //cannot reset request url in address bar ("beauitify" it)
 
-    response.send(searchTerm);
+    // response.send(searchTerm);
+    response.render('pages/gapi');
   }
   else {
     console.log(str);
