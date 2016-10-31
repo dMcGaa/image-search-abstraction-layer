@@ -1,22 +1,25 @@
 {
-  "name": "freecc-timestamp-microservice",
+  "name": "freecc-imagesearch-abstraction-layer",
   "version": "0.0.1",
-  "description": "Converte date to unix and natural standards",
+  "description": "Image Abstraction Layer",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "node_modules/.bin/mocha ./**/*.spec.js -w"
   },
     "dependencies": {
     "ejs": "^2.3.1",
     "express": "~4.9.x",
-    "request": "~2.67.x"
+    "request": "~2.67.x",
+    "mocha": "3.1.2",
+    "chai": "3.5.0"
   },
   "engines": {
     "node": "4.X"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dMcGaa/TimeStamp-Microservice.git"
+    "url": "https://github.com/dMcGaa/"
   },
 
   "keywords": [
@@ -26,7 +29,7 @@
   "author": "dMcGaa",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dMcGaa/TimeStamp-Microservice/issues"
+    "url": "https://github.com/dMcGaa/"
   },
-  "homepage": "https://github.com/dMcGaa/TimeStamp-Microservice#readme"
+  "homepage": "https://github.com/dMcGaa/"
 }
