@@ -1,5 +1,7 @@
+require('dotenv').load();
 var express = require('express');
 var imageSearch = require('./image-search-layer/util-image-search');
+var bingImageSearch = require('./ms-cog-serv-img-srch/ms-img-srch');
 var app = express();
 
 var recentSearch = [];
@@ -19,7 +21,10 @@ app.get('/api/imagesearch/*', function(request, response) {
   var str = request.url;
   str = str.slice(("/api/imagesearch/").length);
   var searchObj = imageSearch.imageSearch(str);
-  response.send(searchObj.searchTerms);
+  // response.send(searchObj.searchTerms);
+  bingImageSearch.searchForImages(searchObj, (res) => {
+    response.send(res);
+  });
   
   //add to recently searched array
   recentSearch.push({
