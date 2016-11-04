@@ -22,17 +22,13 @@ function searchForImages(searchObj, callback){
     }
         
     https.get(options, (res) => {
-    //   console.log('statusCode:', res.statusCode);
-    //   console.log('headers:', res.headers);
         var body = '';
         res.on('data', function(d) {
             body += d;
         });
         res.on('end', function() {
-
-            // Data reception is done, do whatever with it!
             var parsed = JSON.parse(body);
-            callback(parsed.value);
+            callback(parsed);
         });
     }).on('error', (e) => {
       console.error(e);

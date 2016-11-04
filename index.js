@@ -23,7 +23,21 @@ app.get('/api/imagesearch/*', function(request, response) {
   var searchObj = imageSearch.imageSearch(str);
   // response.send(searchObj.searchTerms);
   bingImageSearch.searchForImages(searchObj, (res) => {
-    response.send(res);
+    if(res.value && Array.isArray(res.value)){
+      console.log('sending curated');
+      var curatedRes = [];
+      res.value.forEach(function(element){
+        curatedRes.push({
+          pageUrl: element.hostPageUrl,
+          altText: element.name,
+          contentUrl: element.contentUrl
+        })
+      });
+      response.send(curatedRes);
+    }
+    else{
+      response.send(res);
+    }
   });
   
   //add to recently searched array
